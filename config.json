@@ -1,0 +1,35 @@
+{
+  "log": {
+    "loglevel": "debug"
+  },
+    "inbounds": [
+      {
+        "port": 37192,
+        "protocol": "vmess",
+        "listen": "0.0.0.0",
+        "settings": {
+          "clients": [
+            {
+              "id": "78a72cfc-7612-4e0c-ceb8-415c647278b5",  // 用户 ID，客户端与服务器必须相同
+              "alterId": 0
+            }
+          ]
+        }
+      },
+      {
+        "port": 1234,
+        "protocol": "shadowsocks",
+        "settings": {
+          "method": "aes-128-gcm",
+          "ota": true,
+          "password": "998111"
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "freedom",  // 主传出协议
+        "settings": {}
+      }
+    ]
+  }

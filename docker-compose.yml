@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  v2ray:
+    image: kuqoi/v2ray:4
+    container_name: v2ray
+    restart: unless-stopped
+    volumes:
+      - ./config.json:/etc/v2ray/config.json
+    ports:
+      - '16824:37192'
+      - '19875:1234'
+    expose:
+      - '16825'
+      - '19876'
+    networks:
+      - default
+networks:
+  default:
+    name: 'v2ray'
+    driver: bridge
