@@ -1,0 +1,64 @@
+{
+  "log": {
+    "error": "",
+    "loglevel": "info",
+    "access": ""
+  },
+  "inbounds": [
+    {
+      "port": 1080, // SOCKS 代理端口，在浏览器中需配置代理并指向这个端口
+      "listen": "0.0.0.0",
+      "protocol": "socks",
+      "settings": {
+        "udp": false,
+        "auth": "noauth"
+      }
+    },
+    {
+      "listen": "0.0.0.0",
+      "protocol": "http",
+      "settings": {
+        "timeout": 360
+      },
+      "port": "1087"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "144.34.160.160", // 服务器地址，请修改为你自己的服务器 ip 或域名
+            "port": 16824, // 服务器端口
+            "users": [
+              {
+                "id": "78a72cfc-7612-4e0c-ceb8-415c647278b5",
+                "alterId": 0,
+                "level": 0,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private",
+          "geoip:cn"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  }
+}
