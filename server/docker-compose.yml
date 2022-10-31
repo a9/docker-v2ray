@@ -8,11 +8,11 @@ services:
     volumes:
       - ./config.json:/etc/v2ray/config.json
     ports:
-      - '16824:37192'
-      - '19875:1234'
+      - '26825:37192'
+      - '29875:1234'
     expose:
-      - '16825'
-      - '19876'
+      - '26825'
+      - '29875'
     networks:
       - default
 networks:
