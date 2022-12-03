@@ -5,14 +5,14 @@ services:
     image: kuqoi/v2ray:4
     container_name: v2ray
     restart: unless-stopped
+    environment:
+      - V2RAY_VMESS_AEAD_FORCED=false
     volumes:
       - ./config.json:/etc/v2ray/config.json
     ports:
-      - '26825:37192'
-      - '29875:1234'
+      - '28901:37192'
     expose:
-      - '26825'
-      - '29875'
+      - '28901'
     networks:
       - default
 networks:

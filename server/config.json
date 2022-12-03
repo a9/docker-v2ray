@@ -10,19 +10,10 @@
         "settings": {
           "clients": [
             {
-              "id": "78a72cfc-7614-1e0c-ceb8-415c647278b5",  // 用户 ID，客户端与服务器必须相同
+              "id": "3796268c-16fd-46e5-90b1-82bca7bbc9a2",  // 用户 ID，客户端与服务器必须相同
               "alterId": 0
             }
           ]
-        }
-      },
-      {
-        "port": 1234,
-        "protocol": "shadowsocks",
-        "settings": {
-          "method": "chacha20-ietf-poly1305",
-          "ota": true,
-          "password": "78a72cfc-7614-1e0c-ceb8-415c647278b5"
         }
       }
     ],
